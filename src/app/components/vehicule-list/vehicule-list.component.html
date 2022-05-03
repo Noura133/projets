@@ -1,0 +1,28 @@
+<h2> vehicule List</h2>
+<table class = "table table-striped">
+<thead>
+    <tr>
+        <th>Marque</th>
+        <th>Model</th>
+        <th>Couleur</th>
+        <th> Actions</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor = "let vehicule of vehicules">
+        
+        <td> {{vehicule.marque}} </td>
+        <td> {{vehicule.model}} </td>
+        <td> {{vehicule.couleur}} </td>
+        <td>
+            <button *ngIf="authService.isAdmin()" (click) = "updateVehicule(vehicule.id)" class="btn btn-info">Update</button>
+            <button *ngIf="authService.isAdmin()" (click) = "deleteVehicule(vehicule.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+            <button *ngIf="authService.isAdmin()" (click) = "vehiculeDetails(vehicule.id)" class="btn btn-info" style="margin-left: 10px">View</button>
+            
+
+        </td>
+
+
+    </tr>
+</tbody>
+</table>
